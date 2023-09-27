@@ -1,0 +1,27 @@
+{% extends 'theme.html' %}
+{% block title %}
+{{ category.name }} | onlineshopping
+{% endblock title %}
+{% block content %}
+<div class="container" style="margin-top:90px;">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                {% for product in A %}
+                    <div class="col-md-3">
+                        <div class="card" >
+                            <img src="{{ product.image }}" class="card-img-top" alt="Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">price:{{ product.price }}</p>
+                                    <p class="card-text">stock:{{ product.stock }}</p>
+                                    <a href="{% url 'display_image' product.id %}" class="btn btn-primary">CLICK</a>
+                                </div>
+                        </div>
+                     </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
